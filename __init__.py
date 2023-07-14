@@ -19,13 +19,8 @@ class HashList(list):
     """
 
     def __hash__(self):
-        allhashes = 1
-        for ini, f in enumerate(fla_tu(self)):
-            if ini % 2 == 0:
-                allhashes += hash(f)
-            else:
-                allhashes -= hash(f)
-        return allhashes
+        return hash(tuple(fla_tu(self)))+1
+
 
 
 class HashDict(dict):
@@ -46,13 +41,7 @@ class HashDict(dict):
     """
 
     def __hash__(self):
-        allhashes = 2
-        for ini, f in enumerate(fla_tu(self)):
-            if ini % 2 == 0:
-                allhashes += hash(f)
-            else:
-                allhashes -= hash(f)
+        return hash(tuple(fla_tu(self))) + 2
 
-        return allhashes
 
 
